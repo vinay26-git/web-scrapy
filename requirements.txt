@@ -1,0 +1,32 @@
+# Web Scraping
+selenium==4.15.2
+webdriver-manager==4.0.1
+beautifulsoup4==4.12.2
+lxml==4.9.3
+requests==2.31.0
+
+# Text Processing & NLP
+nltk==3.8.1
+spacy==3.7.2
+langdetect==1.0.9
+textstat==0.7.3
+
+# Embeddings
+sentence-transformers==2.2.2
+transformers==4.35.2
+torch==2.1.1
+numpy==1.24.3
+
+# Chunking & Content Analysis
+tiktoken==0.5.1
+scikit-learn==1.3.2
+
+# Utilities
+python-dotenv==1.0.0
+tqdm==4.66.1
+pandas==2.1.3
+pydantic==2.5.0
+loguru==0.7.2
+
+# Database (optional for caching)
+chromadb==0.4.18
