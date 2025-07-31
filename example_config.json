@@ -1,0 +1,72 @@
+{
+  "scraping": {
+    "headless": true,
+    "page_load_timeout": 30,
+    "implicit_wait": 10,
+    "window_size": [1920, 1080],
+    "max_retries": 3,
+    "retry_delay": 2,
+    "request_timeout": 30,
+    "user_agents": [
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+      "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    ]
+  },
+  "chunking": {
+    "chunk_size": 1000,
+    "chunk_overlap": 200,
+    "separators": [
+      "\n\n",
+      "\n",
+      ". ",
+      "! ",
+      "? ",
+      "; ",
+      ", ",
+      " ",
+      ""
+    ],
+    "min_chunk_size": 100,
+    "max_chunk_size": 2000,
+    "preserve_paragraphs": true,
+    "preserve_sentences": true
+  },
+  "embedding": {
+    "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "batch_size": 32,
+    "max_length": 512,
+    "normalize_embeddings": true,
+    "device": "auto",
+    "cache_dir": "./embeddings_cache",
+    "save_embeddings": true
+  },
+  "website": {
+    "business_selectors": {
+      "title": ["h1", ".title", ".page-title", "title"],
+      "content": ["main", ".content", ".main-content", "article", ".post-content"],
+      "description": [".description", ".summary", ".excerpt", "meta[name='description']"],
+      "contact": [".contact", ".contact-info", ".footer", ".address"],
+      "services": [".services", ".products", ".offerings", ".features"]
+    },
+    "news_selectors": {
+      "title": ["h1", ".headline", ".title", ".article-title"],
+      "content": ["article", ".article-content", ".story-content", ".post-content"],
+      "author": [".author", ".byline", ".writer", "meta[name='author']"],
+      "date": [".date", ".published", ".timestamp", "time"],
+      "summary": [".summary", ".excerpt", ".lead", ".intro"]
+    },
+    "wikipedia_selectors": {
+      "title": ["h1.firstHeading", ".mw-page-title-main"],
+      "content": ["#mw-content-text", ".mw-parser-output"],
+      "toc": ["#toc", ".toc"],
+      "infobox": [".infobox", ".wikitable"],
+      "references": ["#References", ".reflist"]
+    }
+  },
+  "output_dir": "./output",
+  "log_level": "INFO",
+  "save_raw_html": true,
+  "save_cleaned_text": true,
+  "save_chunks": true
+}
